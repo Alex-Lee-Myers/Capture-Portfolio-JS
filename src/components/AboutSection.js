@@ -1,24 +1,30 @@
 import React from "react";
 import home1 from ".././img/home1.png";
 //Styled Components
-import styled from "styled-components";
+// import styled from "styled-components";
+import {
+	StyledLayout,
+	StyledDescription,
+	StyledImage,
+	StyledHide,
+} from "../styles";
 
 const AboutSection = () => {
 	return (
-		<StyledAbout>
+		<StyledLayout>
 			<StyledDescription>
 				<div className="title">
-					<Hide>
+					<StyledHide>
 						<h2>We work to make</h2>
-					</Hide>
-					<Hide>
+					</StyledHide>
+					<StyledHide>
 						<h2>
 							your <span>dreams</span> come
 						</h2>
-					</Hide>
-					<Hide>
+					</StyledHide>
+					<StyledHide>
 						<h2>true.</h2>
-					</Hide>
+					</StyledHide>
 				</div>
 				<p>
 					Contact us for any photography or videography ideas you may have. We
@@ -30,40 +36,8 @@ const AboutSection = () => {
 			<StyledImage>
 				<img src={home1} alt="A guy with a camera" />
 			</StyledImage>
-		</StyledAbout>
+		</StyledLayout>
 	);
 };
-
-//Styled Components
-const StyledAbout = styled.div`
-	min-height: 90vh;
-	display: flex;
-	align-items: centers;
-	justify-content: space-between;
-	padding: 5rem 10rem;
-	color: white;
-`;
-
-const StyledDescription = styled.div`
-	flex: 1;
-	padding-right: 5rem;
-	h2 {
-		font-weight: lighter;
-	}
-`;
-
-const StyledImage = styled.div`
-	flex: 1;
-	overflow: hidden;
-	img {
-		width: 100%;
-		height: 80vh;
-		object-fit: cover;
-	}
-`;
-
-const Hide = styled.div`
-	overflow: hidden;
-`;
 
 export default AboutSection;
