@@ -15,8 +15,8 @@ function App() {
 			<Nav />
 			<Routes>
 				<Route path="/" exact element={<AboutUs />} />
-				<Route path="/aboutus" element={<AboutUs />} />
-				<Route path="/ourwork" exact element={<OurWork />} />
+				<Route path="/aboutus" exact element={<AboutUs />} />
+				<Route path="/ourwork" excact element={<OurWork />} />
 				<Route path="/contactus" exact element={<ContactUs />} />
 			</Routes>
 		</div>
