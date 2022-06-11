@@ -1,7 +1,8 @@
 import React from "react";
 import home1 from ".././img/home1.png";
-//Styled Components
-// import styled from "styled-components";
+//Framer Motion
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+//Styled Components imported
 import {
 	StyledLayout,
 	StyledDescription,
@@ -10,20 +11,32 @@ import {
 } from "../styles";
 
 const AboutSection = () => {
+	// Framer Variants
+	const titleAnimation = {
+		hidden: { opacity: 0 },
+		show: { opacity: 1, transition: { duration: 2 } },
+	};
+
 	return (
 		<StyledLayout>
 			<StyledDescription>
 				<div className="title">
 					<StyledHide>
-						<h2>We work to make</h2>
+						<motion.h2
+							variants={titleAnimation}
+							initial="hidden"
+							animate="show"
+						>
+							We work to make
+						</motion.h2>
 					</StyledHide>
 					<StyledHide>
 						<h2>
-							your <span>dreams</span> come
+							your <span>dreams</span>
 						</h2>
 					</StyledHide>
 					<StyledHide>
-						<h2>true.</h2>
+						<h2>come true.</h2>
 					</StyledHide>
 				</div>
 				<p>

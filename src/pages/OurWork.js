@@ -1,37 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-//images
-import athlete from "../img/athlete-small.png";
-import theracer from "../img/theracer-small.png";
-import goodtimes from "../img/goodtimes-small.png";
+import MovieState from "../MovieState";
 
 const OurWork = () => {
+	const [movies] = useState(MovieState);
 	return (
 		<Work>
-			<Movie>
-				<h2>The Athlete</h2>
-				<div className="line"></div>
-				<Link to="/ourwork/athlete">
-					<img src={athlete} alt="athlete" />
-				</Link>
-			</Movie>
-
-			<Movie>
-				<h2>The Racer</h2>
-				<div className="line"></div>
-				<Link to="/ourwork/theracer">
-					<img src={theracer} alt="theracer" />
-				</Link>
-			</Movie>
-
-			<Movie>
-				<h2>Good Times</h2>
-				<div className="line"></div>
-				<Link to="/ourwork/goodtimes">
-					<img src={goodtimes} alt="goodtimes" />
-				</Link>
-			</Movie>
+			{movies.map((movie) => (
+				<Movie>
+					<h2>{movie.title}</h2>
+					<div className="line"></div>
+					<Link to={movie.url}>
+						<img src={movie.mainImg} alt={movie.title} />
+					</Link>
+				</Movie>
+			))}
 		</Work>
 	);
 };
@@ -42,11 +26,11 @@ const Work = styled.div`
 	padding: 5rem 10rem;
 	h2 {
 		padding: 1rem 0rem;
+		color: white;
 	}
 `;
 
 const Movie = styled.div`
-	padding-bottom: 10rem;
 	.line {
 		height: 0.5rem;
 		background: #cccccc;
@@ -54,8 +38,9 @@ const Movie = styled.div`
 	}
 	img {
 		width: 100%;
-		height: 70vh;
+		height: 100vh;
 		object-fit: cover;
+		object-position: center;
 	}
 `;
 

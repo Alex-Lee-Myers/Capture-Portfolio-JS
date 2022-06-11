@@ -1,7 +1,19 @@
 import React from "react";
+import styled from "styled-components";
 
-const AboutUs = () => {
-	return <div>About Us</div>;
+const ContactUs = () => {
+	return (
+		<ContactUsStyled>
+			<h2>Contact Us</h2>
+		</ContactUsStyled>
+	);
 };
 
-export default AboutUs;
+const ContactUsStyled = styled.div`
+	h2 {
+		padding: 1rem 0rem;
+		color: white;
+	}
+`;
+
+export default ContactUs;
