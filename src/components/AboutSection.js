@@ -1,7 +1,7 @@
 import React from "react";
 import home1 from ".././img/home1.png";
 //Framer Motion
-import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 //Styled Components imported
 import {
 	StyledLayout,
@@ -9,48 +9,44 @@ import {
 	StyledImage,
 	StyledHide,
 } from "../styles";
+import { titleAnim, fade, photoAnim } from "../Animation";
+import Wave from "./Wave";
 
 const AboutSection = () => {
-	// Framer Variants
-	const titleAnimation = {
-		hidden: { opacity: 0 },
-		show: { opacity: 1, transition: { duration: 2 } },
-	};
-
 	return (
 		<StyledLayout>
 			<StyledDescription>
-				<div className="title">
+				<motion.div>
 					<StyledHide>
-						<motion.h2
-							variants={titleAnimation}
-							initial="hidden"
-							animate="show"
-						>
+						<motion.h2 variants={titleAnim} initial="hidden" animate="show">
 							We work to make
 						</motion.h2>
 					</StyledHide>
 					<StyledHide>
-						<h2>
+						<motion.h2 variants={titleAnim}>
 							your <span>dreams</span>
-						</h2>
+						</motion.h2>
 					</StyledHide>
 					<StyledHide>
-						<h2>come true.</h2>
+						<motion.h2 variants={titleAnim}>come true.</motion.h2>
 					</StyledHide>
-				</div>
-				<p>
+				</motion.div>
+				<motion.p variants={fade}>
 					Contact us for any photography or videography ideas you may have. We
 					can help you create a unique and memorable video that will be a part
 					of your story.
-				</p>
-				<button>Contact Us</button>
+				</motion.p>
+				<motion.button variants={fade}>Contact Us</motion.button>
 			</StyledDescription>
 			<StyledImage>
-				<img src={home1} alt="A guy with a camera" />
+				<motion.img
+					variants={photoAnim}
+					src={home1}
+					alt="A guy with a camera"
+				/>
 			</StyledImage>
 		</StyledLayout>
 	);
 };
-
+// <Wave></Wave>;
 export default AboutSection;
