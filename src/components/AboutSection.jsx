@@ -10,11 +10,12 @@ import {
 	StyledHide,
 } from "../styles";
 import { titleAnim, fade, photoAnim } from "../Animation";
-import Wave from "./Wave";
+import Wave from "../components/Wave";
 
 const AboutSection = () => {
 	return (
 		<StyledLayout>
+			<Wave />
 			<StyledDescription>
 				<motion.div>
 					<StyledHide>
@@ -48,5 +49,5 @@ const AboutSection = () => {
 		</StyledLayout>
 	);
 };
-// <Wave></Wave>;
+
 export default AboutSection;

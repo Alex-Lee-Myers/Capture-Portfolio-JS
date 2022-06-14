@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import MovieState from "../MovieState";
 //Animations
-import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 import { pageAnimation } from "../Animation";
 
 const OurWork = () => {
