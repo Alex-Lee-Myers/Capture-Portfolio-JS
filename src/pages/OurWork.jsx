@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import MovieState from "../MovieState";
+//Animations
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+import { pageAnimation } from "../Animation";
 
 const OurWork = () => {
 	const [movies] = useState(MovieState);
 	return (
-		<Work>
+		<Work
+			AnimatePresence
+			exitBeforeEnter
+			variants={pageAnimation}
+			initial="hidden"
+			animate="show"
+			exit="exit"
+		>
 			{movies.map((movie) => (
 				<Movie>
 					<h2>{movie.title}</h2>
@@ -20,7 +30,7 @@ const OurWork = () => {
 	);
 };
 
-const Work = styled.div`
+const Work = styled(motion.div)`
 	min-height: 100vh;
 	overflow: hidden;
 	padding: 5rem 10rem;

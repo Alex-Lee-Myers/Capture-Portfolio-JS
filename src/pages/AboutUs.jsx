@@ -9,6 +9,8 @@ import { pageAnimation } from "../Animation";
 const AboutUs = () => {
 	return (
 		<motion.div
+			AnimatePresence
+			exitBeforeEnter
 			exit="exit"
 			variants={pageAnimation}
 			initial="hidden"

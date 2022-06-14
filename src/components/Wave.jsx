@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 
 const Wave = () => {
+	const WaveSvg = styled.svg`
+		position: absolute;
+		left: 0;
+		z-index: 1;
+	`;
+
 	return (
 		<WaveSvg
 			viewBox="0 0 1440 363"
@@ -21,11 +27,5 @@ const Wave = () => {
 		</WaveSvg>
 	);
 };
-
-const WaveSvg = styled.svg`
-	position: absolute;
-	left: 0;
-	z-index: 1;
-`;
 
 export default Wave;
