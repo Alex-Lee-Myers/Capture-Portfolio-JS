@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import MovieState from "../MovieState";
 //Animations
 import { motion } from "framer-motion/dist/framer-motion";
-import { pageAnimation } from "../Animation";
+import { pageAnimation, fade, photoAnim, lineAnim } from "../Animation";
 
 const OurWork = () => {
 	const [movies] = useState(MovieState);
@@ -19,10 +19,18 @@ const OurWork = () => {
 		>
 			{movies.map((movie) => (
 				<Movie>
-					<h2>{movie.title}</h2>
-					<div className="line"></div>
+					<motion.h2 variants={fade}> {movie.title}</motion.h2>
+
+					<motion.div className="line" variants={lineAnim}></motion.div>
+
 					<Link to={movie.url}>
-						<img src={movie.mainImg} alt={movie.title} />
+						<StyledHide>
+							<motion.img
+								variants={photoAnim}
+								src={movie.mainImg}
+								alt={movie.title}
+							/>
+						</StyledHide>
 					</Link>
 				</Movie>
 			))}
@@ -43,7 +51,7 @@ const Work = styled(motion.div)`
 const Movie = styled.div`
 	.line {
 		height: 0.5rem;
-		background: #cccccc;
+		background: #23d997;
 		margin-bottom: 3rem;
 	}
 	img {
@@ -52,6 +60,9 @@ const Movie = styled.div`
 		object-fit: cover;
 		object-position: center;
 	}
+`;
+const StyledHide = styled.div`
+	overflow: hidden;
 `;
 
 export default OurWork;
