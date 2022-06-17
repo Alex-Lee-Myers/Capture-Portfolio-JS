@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 
 const Toggle = ({ children, title }) => {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<motion.div layout className="question" onClick={() => setIsOpen(!isOpen)}>
