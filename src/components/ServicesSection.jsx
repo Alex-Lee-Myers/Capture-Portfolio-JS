@@ -7,25 +7,19 @@ import home2 from "../img/home2.png";
 //Styled Component
 import { StyledLayout, StyledDescription, StyledImage } from "../styles";
 import styled from "styled-components";
-import { useInView } from "react-intersection-observer";
-import { useAnimation } from "framer-motion/dist/framer-motion";
+import { useScroll } from "./useScroll";
+import { fade } from "../Animation";
 
 const ServicesSection = () => {
-	const [element, view] = useInView({
-		threshold: 0.3,
-		triggerOnce: true,
-	});
-
-	const controls = useAnimation();
-
-	if (view) {
-		controls.start("show");
-	} else {
-		controls.start("hidden");
-	}
+	const [element, controls] = useScroll();
 
 	return (
-		<StyledServices ref={element} variants>
+		<StyledServices
+			ref={element}
+			animate={controls}
+			initial="hidden"
+			variants={fade}
+		>
 			<StyledDescription>
 				<h2>
 					High <span>quality</span> services.
