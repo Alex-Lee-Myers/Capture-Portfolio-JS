@@ -12,12 +12,22 @@ import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
 	const location = useLocation();
+	window.onload = () => {
+		setTimeout(() => {
+			window.scrollTo(0, 0);
+		}, 0);
+	};
 
 	return (
 		<div className="App">
 			<GlobalStyle />
 			<Nav />
-			<AnimatePresence exitBeforeEnter>
+			<AnimatePresence
+				exitBeforeEnter
+				onExitComplete={() => {
+					window.scrollTo(0, 0);
+				}}
+			>
 				<Routes location={location} key={location.pathname}>
 					<Route path="/" exact element={<AboutUs />} />
 					<Route path="/aboutus" exact element={<AboutUs />} />
